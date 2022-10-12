@@ -121,7 +121,7 @@ function showScore() {
     gameoverman.style.display = "flex";
     clearInterval(timer);
     Name.value = "";
-    fnlScore.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
+    fnlScore.innerHTML = score + " out of " + quizQuestions.length;
 }
 
 function checks(answer) {

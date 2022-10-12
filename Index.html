@@ -13,11 +13,11 @@
         <div id="startpage">
 
             <button id="startbtn">Start The Quiz!!!!</button>
-            <button id="startPageHighscore" onclick="showscores()">High Scores</button>
+            <button id="startPageHighscore">High Scores</button>
         </div>
 
         <div id="quiz">
-            <div id="timer">Remaining time: </div>
+            <div class="timeclass" id="time">Countdown Starting: </div>
             <div id="questions"><p>Questions Placeholder</p></div>
             <button id="a" onclick="checks('a')">A</button>
             <button id="b" onclick="checks('b')">B</button>
@@ -28,10 +28,10 @@
         <div id="gameover">
 
             <div id="finalScore"></div>
-            <input type="text" size="40" placeholder="Enter your name!" name="FullName" id="FullName" />
+            <input type="text"  placeholder="Enter your name!" id="FullName" />
             <button id="submitScore">Submit Score</button>
         </div>
-        <div id=highscoreContainer>
+        <div id=highscore>
             <div id="high-scorePage">
                 <div id="highscore-header">
                     <h3>Player Name</h3>
@@ -40,9 +40,9 @@
                 <div id="highscore-initials"></div>
                 <div id="highscore-score"></div>
             </div>
-            <div id="endGameBtns">
-                <button id="playAgain" onclick="replay()">Play Again?</button>
-                <button id="clearHighscore" onclick="clear()">Clear Highscores</button>
+            <div id="endG">
+                <button id="playAgain">Play Again?</button>
+                <button id="clear">Clear Highscores</button>
             </div>
         </div>
     </div>
