@@ -186,7 +186,7 @@ function replay() {
     highscoreContainer.style.display = "none";
     gameoverman.style.display = "none";
     startDiv.style.display = "flex";
-    timeLeft = 76;
+    timeLeft = 20;
     score = 0;
     currentQuestionIndex = 0;
 }
