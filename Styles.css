@@ -2,23 +2,18 @@
     background-color: whitesmoke;
 }
 
-li {
-    padding-bottom: 3px;
-    color: white;
-    text-shadow: 1.5px 1px 3px black;
-    list-style-type: none;
-}
+
 
 p {
     color: black;
     text-shadow: .5px .5px white;
     text-align: center;
     font-size: xx-large;
-    font-family: sans-serif;
+    font-family: helvetica;
 }
 
 h2 {
-    font-family: sans-serif;
+    font-family: helvetica;
     margin-top: -.5rem;
 }
 
@@ -38,7 +33,7 @@ input {
 
 button {
     display: inline-block;
-    font-family: sans-serif;
+    font-family: helvetica;
     background-color: #00274C;
     border-radius: 10px;
     border: 3px double #cccccc;
@@ -50,9 +45,7 @@ button {
     margin-top: 3px;
 }
 
-    button:hover {
-        box-shadow: 4px 3px 6px #4450bd;
-    }
+
 
 #startpage {
     display: flex;
@@ -60,15 +53,21 @@ button {
     align-items: center;
 }
 
-#timer {
-    font-family: sans-serif;
+.timeclass {
+    font-family: helvetica;
     background-color: #00274C;
     color: #FFCB05;
     font-size: 24px;
-  
     text-align: center;
 }
-
+.uhoh {
+    background-color: red;
+    font-family: helvetica;
+  
+    color: #FFCB05;
+    font-size: 24px;
+    text-align: center;
+}
 #quiz {
     display: none;
 }
@@ -106,10 +105,10 @@ button {
     margin-bottom: .5rem;
     background-color: #FFCB05;
     color: #00274C;
-    font-family: sans-serif;
+    font-family: helvetica;
 }
 
-#highscoreContainer {
+#highscore {
     height: 100%;
     width: 100%;
     display: none;
@@ -126,21 +125,21 @@ button {
 #highscore-initials {
     display: inline-block;
     padding-left: 9.5rem;
-    font-family: sans-serif;
+    font-family: helvetica;
     font-weight: bold;
 }
 
 #highscore-score {
     float: right;
     padding-right: 8.75rem;
-    font-family: sans-serif;
+    font-family: helvetica;
     font-weight: bold;
 }
 
 #finalScore {
     padding-bottom: 0.5rem;
     font-size: x-large;
-    font-family: sans-serif;
+    font-family: helvetica;
     font-weight: bold;
 }
 

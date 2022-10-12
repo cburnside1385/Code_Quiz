@@ -6,19 +6,27 @@ var btnD = document.getElementById("d");
 var quizBody = document.getElementById("quiz");
 var resultsEl = document.getElementById("result");
 var fnlScore = document.getElementById("finalScore");
-var quizTimer = document.getElementById("timer");
+var time = document.getElementById("time");
 var startButton = document.getElementById("startbtn");
 var startDiv = document.getElementById("startpage");
-var highscoreContainer = document.getElementById("highscoreContainer");
+var highscores = document.getElementById("highscore");
 var highscoreDiv = document.getElementById("high-scorePage");
 var Name = document.getElementById("FullName");
 var highscoreDisplayName = document.getElementById("highscore-initials");
-var endGameBtns = document.getElementById("endGameBtns");
+var endG = document.getElementById("endG");
 var submitScoreBtn = document.getElementById("submitScore");
 var hghScore = document.getElementById("highscore-score");
 var gameoverman = document.getElementById("gameover");
 var qs = document.getElementById("questions");
-// Quiz question object
+
+var currentQuestionIndex = 0;
+var timeLeft = 20;
+var timer;
+var score = 0;
+var correct;
+
+
+//questions
 var quizQuestions = [{
     question: "What is a JavaScript element that represents either TRUE or FALSE values?",
     A: "Boolean",
@@ -64,15 +72,12 @@ var quizQuestions = [{
 
 
 ];
-// Other global variables
-var finalQuestionIndex = quizQuestions.length;
-var currentQuestionIndex = 0;
-var timeLeft = 20;
-var timer;
-var score = 0;
-var correct;
 
-// This function cycles through the object array containing the quiz questions to generate the questions and answers.
+var finalQuestionIndex = quizQuestions.length;
+document.getElementById("playAgain").addEventListener("click", replay);
+document.getElementById("clear").addEventListener("click", clear);
+document.getElementById("startPageHighscore").addEventListener("click", showscores);
+
 function generateQuizQuestion() {
     gameoverman.style.display = "none";
     if (currentQuestionIndex === finalQuestionIndex) {
@@ -86,18 +91,24 @@ function generateQuizQuestion() {
     btnD.innerHTML = currentQuestion.D;
 };
 
-// Start Quiz function starts the TimeRanges, hides the start button, and displays the first quiz question.
+
 function startQuiz() {
     gameoverman.style.display = "none";
     startDiv.style.display = "none";
     generateQuizQuestion();
 
-    //Timer
+    
     timer = setInterval(function () {
         timeLeft--;
-        quizTimer.textContent = "Time left: " + timeLeft;
-
-        if (timeLeft === 0) {
+        time.textContent = "Time remaining: " + timeLeft;
+        if (timeLeft <= 10 && timeLeft >= 1) {
+            time.textContent = "Hurry up, Time remaining: " + timeLeft + "!";
+            var element = document.getElementById("time");
+            element.classList.add("uhoh");
+            element.classList.remove("timeclass");
+           
+        }
+        else if (timeLeft === 0) {
             clearInterval(timer);
             showScore();
         }
@@ -145,9 +156,9 @@ submitScoreBtn.addEventListener("click", function highscore() {
         };
 
         gameoverman.style.display = "none";
-        highscoreContainer.style.display = "flex";
+        highscores.style.display = "flex";
         highscoreDiv.style.display = "block";
-        endGameBtns.style.display = "flex";
+        endG.style.display = "flex";
 
         savedHighscores.push(currentHighscore);
         localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
@@ -183,7 +194,7 @@ function clear() {
 
 // start over
 function replay() {
-    highscoreContainer.style.display = "none";
+    highscores.style.display = "none";
     gameoverman.style.display = "none";
     startDiv.style.display = "flex";
     timeLeft = 20;
@@ -195,9 +206,9 @@ function replay() {
 function showscores() {
     startDiv.style.display = "none"
     gameoverman.style.display = "none";
-    highscoreContainer.style.display = "flex";
+    highscores.style.display = "flex";
     highscoreDiv.style.display = "block";
-    endGameBtns.style.display = "flex";
+    endG.style.display = "flex";
 
     Highscores();
 }
